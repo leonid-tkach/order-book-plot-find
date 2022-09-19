@@ -3,6 +3,7 @@ OrderLog*.*
 LKOH_2007_10.csv
 LKOH_SBER_GMKN_2007_10.csv
 config.py
+*.pdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
