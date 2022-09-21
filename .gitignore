@@ -4,6 +4,8 @@ LKOH_2007_10.csv
 LKOH_SBER_GMKN_2007_10.csv
 config.py
 *.pdf
+quotes_df.*
+trades_df.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
