@@ -6,6 +6,7 @@ config.py
 *.pdf
 quotes_df.*
 trades_df.*
+2002.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
