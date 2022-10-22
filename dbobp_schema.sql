@@ -55,6 +55,10 @@ CREATE TABLE IF NOT EXISTS order_atts_cumsums (
 \copy order_atts_cumsums(att, val, datetimetxt, nno, obplotno, ddate, seccode, sharebal, bprofit, sprofit, obpminprice, obpmaxprice, CBOVOLtdcs, CSOVOLtdcs, BOVOLtdcs, SOVOLtdcs, BTVOLtdcs, STVOLtdcs, CBOVOLobpcs, CSOVOLobpcs, BOVOLobpcs, SOVOLobpcs, BTVOLobpcs, STVOLobpcs) FROM C:\Users\lt\Documents\GWU\final_project\order-book-plot-find\resources\for_web_app\L_S_G_2007_10_order_atts_cumsums.csv DELIMITER ',' CSV HEADER;
 */
 
+/*
+UPDATE order_atts_cumsums set datetimemlls = to_timestamp(datetimetxt,'YYYY-MM-DD HH24:MI:SS.MS');
+*/
+
 CREATE TABLE IF NOT EXISTS obp_cum_atts (
 	id SERIAL PRIMARY KEY,
 	seccode VARCHAR NOT NULL,
@@ -62,16 +66,15 @@ CREATE TABLE IF NOT EXISTS obp_cum_atts (
 	obplotno INT NOT NULL,
 	tradevol DOUBLE PRECISION NOT NULL,
 	buysellobp VARCHAR NOT NULL,
-	
-	buysell VARCHAR NOT NULL,
-	ttime INT NOT NULL,
-	orderno INT NOT NULL,
-	aaction INT NOT NULL,
-	price REAL NOT NULL,
-	volume INT NOT NULL,
-	tradeno INT,
-	tradeprice REAL,
+	tradesnotrades VARCHAR NOT NULL,
+	buysellyield DOUBLE PRECISION,
+	obptovolratio DOUBLE PRECISION NOT NULL,
+	minmaxratio DOUBLE PRECISION NOT NULL
 );
+
+/*
+\copy obp_cum_atts(seccode, ddate, obplotno, tradevol, buysellobp, tradesnotrades, buysellyield, obptovolratio, minmaxratio)  FROM C:\Users\lt\Documents\GWU\final_project\order-book-plot-find\resources\for_web_app\L_S_G_2007_10_8-9_obp_cum_atts.csv DELIMITER ',' CSV HEADER;
+*/
 
 /*
 COPY obps(nno, seccode, buysell, ttime, orderno, 
