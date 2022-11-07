@@ -115,3 +115,81 @@ CREATE TABLE order_atts_cumsums_enhanced AS
 	FROM order_atts_cumsums AS oac LEFT JOIN obps ON 
 		oac.nno = obps.nno AND oac.ddate = obps.ddate;
 */
+
+/*
+ALTER TABLE order_atts_cumsums_enhanced ADD COLUMN id SERIAL PRIMARY KEY;
+*/
+
+/*
+CREATE TABLE obp_minmax_atts AS 
+	SELECT
+		oac.seccode,
+		oac.ddate,
+		oac.obplotno,
+		MIN(oac.datetimemlls) AS obpbegin,
+		MAX(oac.datetimemlls) AS obpend,
+		MIN(oac.price) AS obpminprice,
+		MAX(oac.price) AS obpmaxprice
+	FROM obp_cum_atts AS oca
+	INNER JOIN order_atts_cumsums_enhanced AS oac
+	ON 
+		oca.seccode = oac.seccode AND
+		oca.ddate = oac.ddate AND
+		oca.obplotno = oac.obplotno
+	GROUP BY oac.seccode, oac.ddate, oac.obplotno;
+*/
+
+/*
+CREATE TABLE obp_cum_minmax_atts AS
+	SELECT
+		oca.seccode,
+		oca.ddate,
+		oca.obplotno,
+		oca.tradevol,
+		oca.buysellobp,
+		oma.obpbegin,
+		oma.obpend,
+		oma.obpminprice,
+		oma.obpmaxprice,
+		oca.tradesnotrades,
+		oca.buysellyield,
+		oca.obptovolratio,
+		oca.minmaxratio
+	FROM obp_cum_atts AS oca LEFT JOIN obp_minmax_atts AS oma
+	ON 
+		oca.seccode = oma.seccode AND
+		oca.ddate = oma.ddate AND
+		oca.obplotno = oma.obplotno;
+*/
+
+/*
+CREATE TABLE obp_cum_atts_enh AS
+	SELECT DISTINCT
+		ocma.seccode,
+		ocma.ddate,
+		ocma.obplotno,
+		ocma.tradevol,
+		ocma.buysellobp,
+		oace.sharebal,
+		oace.bprofit,
+		oace.sprofit,
+		ocma.obpbegin,
+		ocma.obpend,
+		ocma.obpminprice,
+		ocma.obpmaxprice,
+		ocma.tradesnotrades,
+		ocma.buysellyield,
+		ocma.obptovolratio,
+		ocma.minmaxratio
+	FROM obp_cum_minmax_atts AS ocma INNER JOIN order_atts_cumsums_enhanced AS oace
+	ON 
+		ocma.seccode = oace.seccode AND
+		ocma.ddate = oace.ddate AND
+		ocma.obplotno = oace.obplotno;
+*/
+
+/*
+ALTER TABLE obp_cum_atts_enh ADD COLUMN id SERIAL PRIMARY KEY;
+*/
+
+
