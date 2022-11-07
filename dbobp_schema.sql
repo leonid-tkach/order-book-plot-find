@@ -77,9 +77,41 @@ CREATE TABLE IF NOT EXISTS obp_cum_atts (
 */
 
 /*
-COPY obps(nno, seccode, buysell, ttime, orderno, 
-aaction, price, volume, tradeno, tradeprice, ddate, obplotno)
-FROM './resources/L_S_G_2007_10_obps.csv'
-DELIMITER ','
-CSV HEADER;
+ALTER TABLE obps ADD COLUMN ttime_s INT;
+UPDATE obps set ttime_s = obps.ttime/1000;
+*/
+
+/*
+CREATE TABLE order_atts_cumsums_enhanced AS 
+	SELECT
+		oac.nno,
+		oac.seccode,
+		oac.datetimemlls,
+		obps.price,
+		obps.tradeprice,
+		obps.volume,
+		oac.ddate,
+		obps.ttime_s,
+		oac.obplotno,
+		oac.att,
+		oac.val,
+		oac.sharebal,
+		oac.bprofit,
+		oac.sprofit,
+		oac.obpminprice,
+		oac.obpmaxprice,
+		oac.CBOVOLtdcs,
+		oac.CSOVOLtdcs,
+		oac.BOVOLtdcs,
+		oac.SOVOLtdcs,
+		oac.BTVOLtdcs,
+		oac.STVOLtdcs,
+		oac.CBOVOLobpcs,
+		oac.CSOVOLobpcs,
+		oac.BOVOLobpcs,
+		oac.SOVOLobpcs,
+		oac.BTVOLobpcs,
+		oac.STVOLobpcs
+	FROM order_atts_cumsums AS oac LEFT JOIN obps ON 
+		oac.nno = obps.nno AND oac.ddate = obps.ddate;
 */
