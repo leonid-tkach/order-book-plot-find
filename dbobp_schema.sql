@@ -206,12 +206,22 @@ ALTER TABLE order_atts_cumsums_enh2
 	DROP COLUMN obpmaxprice;
 */
 
+/*
 ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN pcolor VARCHAR;
 UPDATE order_atts_cumsums_enh2 
 	SET pcolor = CASE 
 		WHEN att = 'BOVOL' THEN 'aquamarine'
 		WHEN att = 'SOVOL' THEN 'coral'
 		ELSE '#004481' END;
+*/
 
+/*
+ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN pshape INT;
+UPDATE order_atts_cumsums_enh2 SET pshape = 4;
+*/
 
+/*
+ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN psize REAL;
+UPDATE order_atts_cumsums_enh2 SET psize = 0.5;
+*/
 
