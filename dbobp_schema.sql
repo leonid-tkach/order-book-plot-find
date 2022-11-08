@@ -206,6 +206,12 @@ ALTER TABLE order_atts_cumsums_enh2
 	DROP COLUMN obpmaxprice;
 */
 
-ALTER TABLE obps ADD COLUMN ttime_s INT;
-UPDATE obps SET ttime_s = obps.ttime/1000;
+ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN pcolor VARCHAR;
+UPDATE order_atts_cumsums_enh2 
+	SET pcolor = CASE 
+		WHEN att = 'BOVOL' THEN 'aquamarine'
+		WHEN att = 'SOVOL' THEN 'coral'
+		ELSE '#004481' END;
+
+
 
