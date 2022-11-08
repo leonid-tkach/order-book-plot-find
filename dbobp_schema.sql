@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS obp_cum_atts (
 
 /*
 ALTER TABLE obps ADD COLUMN ttime_s INT;
-UPDATE obps set ttime_s = obps.ttime/1000;
+UPDATE obps SET ttime_s = obps.ttime/1000;
 */
 
 /*
@@ -192,4 +192,36 @@ CREATE TABLE obp_cum_atts_enh AS
 ALTER TABLE obp_cum_atts_enh ADD COLUMN id SERIAL PRIMARY KEY;
 */
 
+/*
+CREATE TABLE order_atts_cumsums_enh2 AS 
+TABLE order_atts_cumsums_enhanced;
+*/
+
+/*
+ALTER TABLE order_atts_cumsums_enh2
+	DROP COLUMN sharebal,
+	DROP COLUMN bprofit,
+	DROP COLUMN sprofit,
+	DROP COLUMN obpminprice,
+	DROP COLUMN obpmaxprice;
+*/
+
+/*
+ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN pcolor VARCHAR;
+UPDATE order_atts_cumsums_enh2 
+	SET pcolor = CASE 
+		WHEN att = 'BOVOL' THEN 'aquamarine'
+		WHEN att = 'SOVOL' THEN 'coral'
+		ELSE '#004481' END;
+*/
+
+/*
+ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN pshape INT;
+UPDATE order_atts_cumsums_enh2 SET pshape = 4;
+*/
+
+/*
+ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN psize REAL;
+UPDATE order_atts_cumsums_enh2 SET psize = 0.5;
+*/
 
