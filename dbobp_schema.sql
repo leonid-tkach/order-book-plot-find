@@ -225,3 +225,8 @@ ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN psize REAL;
 UPDATE order_atts_cumsums_enh2 SET psize = 0.5;
 */
 
+ALTER TABLE order_atts_cumsums_enh2
+	DROP COLUMN id;
+	
+	
+	
