@@ -219,3 +219,22 @@ UPDATE order_atts_cumsums_enh2 SET psize = 0.5;
 */
 
 
+
+/* enh3 ordered */
+CREATE TABLE IF NOT EXISTS order_atts_cumsums_enh3 AS 
+TABLE order_atts_cumsums_enh2
+ORDER BY seccode, ddate, nno;
+
+
+
+/* enh4 */
+CREATE TABLE IF NOT EXISTS order_atts_cumsums_enh4 AS 
+TABLE order_atts_cumsums_enh3;
+
+
+/* enh4 indexed */
+CREATE INDEX idx_sdn 
+ON order_atts_cumsums_enh4 (seccode, ddate, nno);
+
+
+
