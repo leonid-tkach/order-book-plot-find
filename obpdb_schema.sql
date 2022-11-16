@@ -1,5 +1,5 @@
 /*
-psql -h ls-27d029825698cf13d3ab49ee92428a74a412cad4.cs6qemxizget.us-east-1.rds.amazonaws.com -U dbweaver -d dbobp -p 5432
+psql -h wdb.ca9hkvxdudzq.us-east-1.rds.amazonaws.com -U postgres -d obpdb -p 5432
 */
 
 CREATE TABLE IF NOT EXISTS obps (
@@ -81,8 +81,7 @@ ALTER TABLE obps ADD COLUMN ttime_s INT;
 UPDATE obps SET ttime_s = obps.ttime/1000;
 */
 
-/*
-CREATE TABLE order_atts_cumsums_enhanced AS 
+CREATE TABLE IF NOT EXISTS order_atts_cumsums_enhanced AS 
 	SELECT
 		oac.nno,
 		oac.seccode,
@@ -114,14 +113,10 @@ CREATE TABLE order_atts_cumsums_enhanced AS
 		oac.STVOLobpcs
 	FROM order_atts_cumsums AS oac LEFT JOIN obps ON 
 		oac.nno = obps.nno AND oac.ddate = obps.ddate;
-*/
-
-/*
-ALTER TABLE order_atts_cumsums_enhanced ADD COLUMN id SERIAL PRIMARY KEY;
-*/
-
-/*
-CREATE TABLE obp_minmax_atts AS 
+		
+		
+		
+CREATE TABLE IF NOT EXISTS obp_minmax_atts AS 
 	SELECT
 		oac.seccode,
 		oac.ddate,
@@ -137,10 +132,10 @@ CREATE TABLE obp_minmax_atts AS
 		oca.ddate = oac.ddate AND
 		oca.obplotno = oac.obplotno
 	GROUP BY oac.seccode, oac.ddate, oac.obplotno;
-*/
-
-/*
-CREATE TABLE obp_cum_minmax_atts AS
+	
+	
+	
+CREATE TABLE IF NOT EXISTS obp_cum_minmax_atts AS
 	SELECT
 		oca.seccode,
 		oca.ddate,
@@ -160,10 +155,10 @@ CREATE TABLE obp_cum_minmax_atts AS
 		oca.seccode = oma.seccode AND
 		oca.ddate = oma.ddate AND
 		oca.obplotno = oma.obplotno;
-*/
 
-/*
-CREATE TABLE obp_cum_atts_enh AS
+
+
+CREATE TABLE IF NOT EXISTS obp_cum_atts_enh AS
 	SELECT DISTINCT
 		ocma.seccode,
 		ocma.ddate,
@@ -186,16 +181,12 @@ CREATE TABLE obp_cum_atts_enh AS
 		ocma.seccode = oace.seccode AND
 		ocma.ddate = oace.ddate AND
 		ocma.obplotno = oace.obplotno;
-*/
-
-/*
-ALTER TABLE obp_cum_atts_enh ADD COLUMN id SERIAL PRIMARY KEY;
-*/
-
-/*
-CREATE TABLE order_atts_cumsums_enh2 AS 
+		
+		
+CREATE TABLE IF NOT EXISTS order_atts_cumsums_enh2 AS 
 TABLE order_atts_cumsums_enhanced;
-*/
+
+
 
 /*
 ALTER TABLE order_atts_cumsums_enh2
@@ -205,6 +196,8 @@ ALTER TABLE order_atts_cumsums_enh2
 	DROP COLUMN obpminprice,
 	DROP COLUMN obpmaxprice;
 */
+
+
 
 /*
 ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN pcolor VARCHAR;
@@ -223,11 +216,6 @@ UPDATE order_atts_cumsums_enh2 SET pshape = 4;
 /*
 ALTER TABLE order_atts_cumsums_enh2 ADD COLUMN psize REAL;
 UPDATE order_atts_cumsums_enh2 SET psize = 0.5;
-*/
-
-/*
-ALTER TABLE order_atts_cumsums_enh2
-	DROP COLUMN id;
 */
 
 
