@@ -190,7 +190,9 @@ TABLE order_atts_cumsums_enhanced;
 
 /*
 ALTER TABLE order_atts_cumsums_enh2
+	/*
 	DROP COLUMN sharebal,
+	*/
 	DROP COLUMN bprofit,
 	DROP COLUMN sprofit,
 	DROP COLUMN obpminprice,
