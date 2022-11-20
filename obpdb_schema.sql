@@ -165,7 +165,9 @@ CREATE TABLE IF NOT EXISTS obp_cum_atts_enh AS
 		ocma.obplotno,
 		ocma.tradevol,
 		ocma.buysellobp,
+    /*
 		oace.sharebal,
+    */
 		oace.bprofit,
 		oace.sprofit,
 		ocma.obpbegin,
@@ -192,7 +194,7 @@ TABLE order_atts_cumsums_enhanced;
 ALTER TABLE order_atts_cumsums_enh2
 	/*
 	DROP COLUMN sharebal,
-	*/
+  /*
 	DROP COLUMN bprofit,
 	DROP COLUMN sprofit,
 	DROP COLUMN obpminprice,
