@@ -3,6 +3,7 @@ psql -h wdb.ca9hkvxdudzq.us-east-1.rds.amazonaws.com -U postgres -d obpdb -p 543
 */
 
 CREATE TABLE IF NOT EXISTS order_atts_cumsums (
+/*	id SERIAL PRIMARY KEY, */
 	nno INT NOT NULL,
 	seccode VARCHAR NOT NULL,
 	datetimetxt VARCHAR NOT NULL,
@@ -10,7 +11,7 @@ CREATE TABLE IF NOT EXISTS order_atts_cumsums (
 	price REAL NOT NULL,
 	tradeprice REAL,
 	volume INT NOT NULL,
-	ddate VARCHAR NOT NULL,
+	ddate DATE NOT NULL,
 	ttime_s INT NOT NULL,
 	obplotno INT NOT NULL,
 	att VARCHAR NOT NULL,
@@ -48,4 +49,40 @@ CREATE TABLE IF NOT EXISTS order_atts_cumsums (
 /*
 UPDATE order_atts_cumsums set datetimemlls = to_timestamp(datetimetxt,'YYYY-MM-DD\THH24:MI:SS.MS\Z');
 */
+
+CREATE TABLE IF NOT EXISTS obp_cum_atts (
+/*	id SERIAL PRIMARY KEY, */
+	seccode VARCHAR NOT NULL,
+	ddate DATE NOT NULL,
+	obplotno INT NOT NULL,
+	tradevol DOUBLE PRECISION NOT NULL,
+	buysellobp VARCHAR NOT NULL,
+	bprofit DOUBLE PRECISION NOT NULL,
+	sprofit DOUBLE PRECISION NOT NULL,
+	obpbegin TIMESTAMP NOT NULL,
+	obpend TIMESTAMP NOT NULL,
+	obpminprice REAL NOT NULL,
+	obpmaxprice REAL NOT NULL,
+	tradesnotrades VARCHAR NOT NULL,
+	obpshareintd DOUBLE PRECISION NOT NULL
+);
+
+/*
+\copy obp_cum_atts(seccode, ddate, obplotno, tradevol, buysellobp, bprofit, sprofit, obpbegin, obpend, obpminprice, obpmaxprice, tradesnotrades, obpshareintd)  FROM C:\Users\lt\Documents\GWU\final_project\order-book-plot-find\cum_errors\resources\for_web_app\obp_cum_atts_enh_df.csv DELIMITER ',' CSV HEADER;
+*/
+
+/*
+CREATE INDEX idx_sdobpn 
+ON order_atts_cumsums (seccode, ddate, obplotno);
+*/
+
+/*
+CREATE INDEX idx_timestamp 
+ON order_atts_cumsums (seccode, ddate, datetimemlls);
+*/
+
+/*
+DROP INDEX idx_sdn;
+*/
+
 
