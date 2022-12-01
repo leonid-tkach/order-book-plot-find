@@ -61,14 +61,18 @@ CREATE TABLE IF NOT EXISTS obp_cum_atts (
 	sprofit DOUBLE PRECISION NOT NULL,
 	obpbegin TIMESTAMP NOT NULL,
 	obpend TIMESTAMP NOT NULL,
+	obpbeginno INT NOT NULL,
+	obpendno INT NOT NULL,
 	obpminprice REAL NOT NULL,
 	obpmaxprice REAL NOT NULL,
+	obpmintradeprice REAL,
+	obpmaxtradeprice REAL,
 	tradesnotrades VARCHAR NOT NULL,
 	obpshareintd DOUBLE PRECISION NOT NULL
 );
 
 /*
-\copy obp_cum_atts(seccode, ddate, obplotno, tradevol, buysellobp, bprofit, sprofit, obpbegin, obpend, obpminprice, obpmaxprice, tradesnotrades, obpshareintd)  FROM C:\Users\lt\Documents\GWU\final_project\order-book-plot-find\cum_errors\resources\for_web_app\obp_cum_atts_enh_df.csv DELIMITER ',' CSV HEADER;
+\copy obp_cum_atts(seccode, ddate, obplotno, tradevol, buysellobp, bprofit, sprofit, obpbegin, obpend, obpbeginno, obpendno, obpminprice, obpmaxprice, obpmintradeprice, obpmaxtradeprice, tradesnotrades, obpshareintd)  FROM C:\Users\lt\Documents\GWU\final_project\order-book-plot-find\cum_errors\resources\for_web_app\obp_cum_atts_enh_df.csv DELIMITER ',' CSV HEADER;
 */
 
 /*
