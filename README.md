@@ -26,3 +26,7 @@ TECHS|I USED
 |<img src="./pres/0ubuntu.png" width="50">|Ubuntu: EC2 operating system.<br>*I use PuTTy terminal to admin it.*
 |<img src="./pres/0NGINX.png" width="50">|F5 NGINX: web server.
 |<img src="./pres/0let-s-encrypt.png" width="50">|Let's Encrypt: to get certificates to use HTTPS.
+
+## From the Past
+
+File `algorithm_2013.cpp` contains code I used in 2013 to find the same order book plots. It's my algorithm, not a much better one from Prof. Sedgewick's I use in this project.  I tried to program it in EViews first then, but it was going to take about 20 days. The same algorithm in C++ took about 4 hours, as far as I remember. 
