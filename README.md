@@ -29,4 +29,4 @@ TECHS|I USED
 
 ## From the Past (`C++`)
 
-File `algorithm_2013.cpp` contains code I used in 2013 to find the same order book plots. It's my algorithm, not the much better one from Prof. Sedgewick's book I use in this project.  I tried to program it in EViews first then, but the search for all obplots was going to take about 20 days. The same algorithm in C++ took about 4 hours, as far as I remember. 
+File `algorithm_2013.cpp` contains code I used in 2013 to find the same order book plots. It's my algorithm, not the much better one from Prof. Sedgewick's book I use in this project (see the [presentation](https://docs.google.com/presentation/d/1i27WkaikonMWRYUc3aiEB2DqW2aQznqykuqXclO93ko/edit#slide=id.g1a7e7bd42c3_1_92)).  I tried to program it in EViews first then, but the search for all obplots was going to take about 20 days. The same algorithm in C++ took about 4 hours, as far as I remember. 
