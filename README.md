@@ -10,7 +10,7 @@ This project consists of two repositories. The main part of this project is here
 You can look into [presentation](https://docs.google.com/presentation/d/1i27WkaikonMWRYUc3aiEB2DqW2aQznqykuqXclO93ko/edit#slide=id.g1a7e7bd42c3_1_92) about this project.
 
 
-Web App: https://orderbookplots.sleepyapper.com/. **The servers operate exclusively during weekdays from 8 AM to 8 PM Eastern Standard Time (EST).**
+Web App: https://orderbookplots.sleepyapper.com/. **The servers have been stopped, but they can be restarted upon request.**
 
 
 I use the algorithm for searching connected components from this book: https://algs4.cs.princeton.edu/41graph/
